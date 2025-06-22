@@ -4,7 +4,7 @@ contacts = {
 }
 
 user_input = input('Enter phone number: ')
-if (user_input.isdigit()) and (len(user_input) == 10):
+if (user_input.isdecimal()) and (len(user_input) == 10):
     if user_input in contacts['phone']:
         phone_index = contacts.get('phone').index(user_input)
         name = contacts.get('name')[phone_index]
@@ -13,3 +13,4 @@ if (user_input.isdigit()) and (len(user_input) == 10):
         print('Sorry, the number is not found.')
 else: 
     print('This is invalid number')
+
