@@ -14,7 +14,7 @@ phone_book=[
         {"name":"Layla",
          "number":"0567917077"}]
 n=input("input your number ")
-def find_number():
+def find_number(n):
    
     for person in phone_book:
          if person["number"] == n:
@@ -23,11 +23,11 @@ def find_number():
     else:
         print("Sorry, the number is not found")
 
-def vaild_num():
+def vaild_num(n):
 
     if len(n)!=10 or not n.isdigit():
         print("This is invalid number")
-        return
-
-find_number()
-vaild_num()
+        return False
+    return True
+if vaild_num(n):
+   find_number(n)
