@@ -10,6 +10,12 @@ def printHomePage():
     print("="* 50)
 
 def addWeatherData():
+    '''
+        take information from user then add to the weather data dict
+        
+        Return:
+            dict: new city
+    '''
     city_name = input("City name: ")
     date = input("Date (dd/mm/yyyy): ")
     temp = input("temperature: ")
@@ -17,7 +23,8 @@ def addWeatherData():
     weather_condition = input("weather condition: ")
     
     # validation ---
-    
+    if len(city_name) < 3 or not temp.isdigit() or not humidity.isdigit(): 
+        return None
     # end validation ---
     
     city = {
@@ -51,8 +58,11 @@ def main():
         user_input = int(user_input)
         if user_input == 1:
             new_city = addWeatherData()
-            weather_data[new_city["name"]] = new_city
-            print("new city added succesfully!.")
+            if new_city != None:
+                weather_data[new_city["name"]] = new_city
+                print("new city added succesfully!.")
+            else:
+                print("Invalied input, please try again.")
             
         elif user_input == 2:
             city_name = input("city name: ")
